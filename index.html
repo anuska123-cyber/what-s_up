@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#100d2b">
+    <meta name="description" content="A little magical Diwali celebration.">
+    <title>Little Diwali Night 🪔</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- WELCOME SCREEN -->
+    <main id="welcome" class="screen welcome-screen">
+        <div class="stars"></div>
+
+        <div class="welcome-content">
+            <p class="eyebrow">✨ A LITTLE FESTIVE MAGIC ✨</p>
+            <h1>Happy<br><span>Diwali</span></h1>
+            <p class="subtitle">A little celebration, made for dudu don.</p>
+            <div class="big-diya">🪔</div>
+
+            <button class="primary-btn" id="startBtn">
+                Enter the Celebration ✨
+            </button>
+
+            <p class="footer-note" style="font-size: larger;">Made with a little warmth from anuska❤️</p>
+        </div>
+    </main>
+
+    <!-- GAME DASHBOARD -->
+    <section id="dashboard" class="screen dashboard-screen hidden">
+        <header class="page-header">
+            <p class="eyebrow">✨ YOUR LITTLE FESTIVE WORLD ✨</p>
+            <h2>Choose Your Magic</h2>
+            <p>Tonight, the celebration is yours.</p>
+        </header>
+
+        <div class="game-cards">
+
+            <article class="game-card">
+                <div class="game-icon">🎨</div>
+                <h3>Rangoli Studio</h3>
+                <p>Create colourful patterns and design your own rangoli.</p>
+                <button class="secondary-btn" data-open="rangoli">
+                    Start Creating →
+                </button>
+            </article>
+
+            <article class="game-card">
+                <div class="game-icon">🪔</div>
+                <h3>Light the Diyas</h3>
+                <p>Light every diya before your time runs out!</p>
+                <button class="secondary-btn" data-open="diyas">
+                    Start Lighting →
+                </button>
+            </article>
+
+            <article class="game-card">
+                <div class="game-icon">🎆</div>
+                <h3>Fireworks Festival</h3>
+                <p>Fill the night sky with colourful fireworks.</p>
+                <button class="secondary-btn" data-open="fireworks">
+                    Launch Fireworks →
+                </button>
+            </article>
+
+        </div>
+
+        <button class="wish-btn" id="finishBtn">
+            💌 Open Your Diwali Wish
+        </button>
+    </section>
+
+    <!-- RANGOLI GAME -->
+    <section id="rangoli" class="screen game-screen hidden">
+        <button class="back-btn">← Back to Celebration</button>
+
+        <header class="page-header">
+            <p class="eyebrow">🎨 YOUR CREATIVE CORNER</p>
+            <h2>Rangoli Studio</h2>
+            <p>Let your imagination bloom!</p>
+        </header>
+
+        <div class="canvas-container">
+            <canvas id="rangoliCanvas"></canvas>
+        </div>
+
+        <div class="tools">
+            <p>Choose your colour</p>
+            <div class="color-palette">
+                <button class="color-btn selected" data-color="#ff4d9d" style="--c:#ff4d9d"></button>
+                <button class="color-btn" data-color="#ffd166" style="--c:#ffd166"></button>
+                <button class="color-btn" data-color="#4dd8ff" style="--c:#4dd8ff"></button>
+                <button class="color-btn" data-color="#9b7bff" style="--c:#9b7bff"></button>
+                <button class="color-btn" data-color="#7dffb3" style="--c:#7dffb3"></button>
+                <button class="color-btn" data-color="#ffffff" style="--c:#ffffff"></button>
+                <button class="color-btn" data-color="#ff873d" style="--c:#ff873d"></button>
+            </div>
+
+            <label for="brushSize">Brush size</label>
+            <input type="range" id="brushSize" min="2" max="30" value="8">
+
+            <div class="tool-buttons">
+                <button class="secondary-btn" id="clearRangoli">Clear Canvas</button>
+                <button class="secondary-btn" id="saveRangoli">Save Rangoli ↓</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIYA GAME -->
+    <section id="diyas" class="screen game-screen hidden">
+        <button class="back-btn">← Back to Celebration</button>
+
+        <header class="page-header">
+            <p class="eyebrow">🪔 SPREAD THE LIGHT</p>
+            <h2>Light the Diyas</h2>
+            <p>Tap every diya to light up the courtyard!</p>
+        </header>
+
+        <div class="score-board">
+            <div>
+                <span>TIME LEFT</span>
+                <strong id="timer">30</strong>
+            </div>
+            <div>
+                <span>LIGHTED</span>
+                <strong id="litCount">0/12</strong>
+            </div>
+        </div>
+
+        <p id="diyaMessage" class="game-message">Ready? Let the celebration begin!</p>
+
+        <div class="diya-grid" id="diyaGrid"></div>
+
+        <button class="primary-btn" id="startDiyaGame">
+            Start Challenge 🪔
+        </button>
+    </section>
+
+
+<!-- FIREWORKS GAME -->
+<section id="fireworks" class="screen game-screen fireworks-screen hidden">
+
+    <button class="back-btn">← Back to Celebration</button>
+
+    <header class="page-header">
+        <p class="eyebrow">🎆 LIGHT UP THE NIGHT</p>
+        <h2>Fireworks Festival</h2>
+        <p>Choose your favourite virtual firework!</p>
+    </header>
+
+    <div class="firework-options">
+
+        <button class="cracker-btn selected" data-cracker="spinner">
+            <span>🌀</span>
+            <strong>Little Sparkle</strong>
+        </button>
+
+        <button class="cracker-btn" data-cracker="sparkler">
+            <span>✨</span>
+            <strong>Sparkle Pop</strong>
+        </button>
+
+        <button class="cracker-btn" data-cracker="bomb">
+            <span>💥</span>
+            <strong>Magic Sky</strong>
+        </button>
+
+        <button class="cracker-btn" data-cracker="flowerpot">
+            <span>🎇</span>
+            <strong>Starry bursts</strong>
+        </button>
+
+    </div>
+
+    <p class="selected-hint" id="crackerHint">
+        🌀 Tap the ground to spin your firework!
+    </p>
+
+    <div class="fireworks-area" id="fireworksArea">
+        <canvas id="fireworksCanvas"></canvas>
+
+        <div class="fireworks-hint">
+            ✨ Tap the area to light your firework ✨
+        </div>
+
+        <div class="fireworks-score">
+            Fireworks: <span id="fireworkCount">0</span>
+        </div>
+    </div>
+
+    <button class="secondary-btn" id="resetFireworks">
+        Start a New Celebration
+    </button>
+
+</section>
+
+
+    <!-- PERSONAL WISH -->
+    <section id="ending" class="screen ending-screen hidden">
+        <div class="stars"></div>
+
+        <div class="ending-content">
+            <div class="big-diya">🪔</div>
+            <p class="eyebrow">FROM anuska</p>
+
+            <h2>Happy Diwali! ❤️</h2>
+
+            <p class="personal-wish">
+                I hope this little celebration brings a smile to your face.
+                Even on the quietest days, remember that you deserve happiness,
+                warmth and all the beautiful little things life has to offer.
+
+
+                Sending you lots of Diwali magic!
+            </p>
+
+            <h3>With lots of warmth, ✨</h3>
+
+            <button class="primary-btn" id="replayBtn">
+                Celebrate Again 🪔
+            </button>
+        </div>
+    </section>
+
+    <!-- SOUND CONTROL -->
+    <button id="soundBtn" class="sound-btn" aria-label="Toggle sound">
+        🔇
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
